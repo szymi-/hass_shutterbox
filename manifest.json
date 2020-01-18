@@ -1,0 +1,14 @@
+{
+  "domain": "blebox_shutterbox",
+  "name": "Blebox Shutterbox",
+  "config_flow": true,
+  "documentation": "https://www.home-assistant.io/integrations/blebox_shutterbox",
+  "requirements": [],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@szymi-"
+  ]
+}
