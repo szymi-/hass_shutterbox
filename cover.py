@@ -131,13 +131,11 @@ class ShutterBoxSegmentedShutter(CoverDevice):
         return self._check_is_closed()
 
     def _check_is_closed(self):
-        @property
-        def is_closed(self):
-            if self._state:
-                # Blebox built in state indicator doesn't seem reliable
-                current_pos = self._state.get('currentPos')
-                return current_pos.get('position') >= 95
-            return False
+        if self._state:
+            # Blebox built in state indicator doesn't seem reliable
+            current_pos = self._state.get('currentPos')
+            return current_pos.get('position') >= 95
+        return False
 
     @property
     def current_cover_position(self):
@@ -228,10 +226,8 @@ class ShutterBoxTiltShutter(ShutterBoxSegmentedShutter):
         return supported_features
 
     def _check_is_closed(self):
-        @property
-        def is_closed(self):
-            if self._state:
-                # Blebox built in state indicator doesn't seem reliable
-                current_pos = self._state.get('currentPos')
-                return current_pos.get('position') >= 95 and current_pos.get('tilt') >= 95
-            return False
+        if self._state:
+            # Blebox built in state indicator doesn't seem reliable
+            current_pos = self._state.get('currentPos')
+            return current_pos.get('position') >= 95 and current_pos.get('tilt') >= 95
+        return False
